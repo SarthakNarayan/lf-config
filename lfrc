@@ -14,16 +14,17 @@ set mouse true
 ########################### Commands ############################
 # $fs selection, $f one, $fx to be safe : https://pkg.go.dev/github.com/gokcehan/lf#hdr-Shell_Commands
 # way 1 of creating commands
-cmd trash %trash $fx 
+cmd trash %trash $fx # brew install trash
 
-cmd test %echo "hello"
+cmd mkdir %mkdir "$@"
+cmd mkfile %touch "$@"
 
 # way 2 of creating commands, runs it in a separate terminal
-cmd mkdir ${{
-  printf "Directory Name: "
-  read ans
-  mkdir $ans
-}}
+# cmd mkdir ${{
+#   printf "Directory Name: "
+#   read ans
+#   mkdir $ans
+# }}
 
 cmd fzf_jump ${{
     res="$(find . \( -name node_modules -o -name .git \) -prune -o -print | fzf --reverse --header='Jump to location' | sed 's/\\/\\\\/g;s/"/\\"/g')"
@@ -53,14 +54,18 @@ cmd fzf_search ${{
 map K half-up
 map J half-down
 map T trash
-# map fv $nvim $(fzf) # find something using fzf
+# map fv $nvim $(fzf) # find and open in vim
 
-map zv $nvim $f # open file/folder in neovim
+# map zv $nvim $f # open file/folder in neovim, don't use this, navigate and then use nvim there
 
 # use esc or <C-c> to quit fzf
 # fzf takes place in the current directory
 map f :fzf_jump # apply fzf from the current directory
 map gs :fzf_search # rip grep with fzf
+
+# directory and file creation
+map a push :mkdir<space>
+map A push :mkfile<space>
 
 # navigation
 map gc cd ~/.config
