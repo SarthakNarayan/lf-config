@@ -64,8 +64,8 @@ map f :fzf_jump # apply fzf from the current directory
 map gs :fzf_search # rip grep with fzf
 
 # directory and file creation
-map a push :mkdir<space>
-map A push :mkfile<space>
+# map a push :mkdir<space>
+# map A push :mkfile<space>
 
 # navigation
 map gc cd ~/.config
