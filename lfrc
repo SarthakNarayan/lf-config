@@ -76,7 +76,7 @@ map gc cd ~/.config
 # $ => running shell commands
 
 # Defaults
-# d (cut), p (paste), y (copy), c (clear all copy and cut commands), use c after pasting
+# d (cut), p (paste), y (copy), c (clear all copy and cut commands), use c after pasting or if you want ot cancel
 # space (multi select), u (unselect)
 # e (open in default editor)
 # s (sort)
